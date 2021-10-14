@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<FlyoutPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:prism="http://prismlibrary.com"
+            xmlns:vm="clr-namespace:PrismSampleApp.ViewModels.Admin"
+            x:DataType="vm:MainPageViewModel"
+            x:Class="PrismSampleApp.Views.Admin.MainPage"
+            Title="{Binding Title}"
+            FlyoutLayoutBehavior="Popover">
+
+    <FlyoutPage.Flyout>
+        <ContentPage Title="Menu">
+            <StackLayout Padding="10">
+                <TableView Intent="Menu">
+                    <TableRoot>
+                        <TableSection>
+                            <ViewCell>
+                                <Button Text="Go To Home Page" Command="{prism:NavigateTo '/NavigationPage/HomePage'}" />
+                            </ViewCell>
+                        </TableSection>
+
+                        <TableSection>
+                            <ViewCell>
+                                <Button Text="Settings" Command="{Binding NavigateCommand}"
+                                        CommandParameter="SettingsPage" Margin="0,5" />
+                            </ViewCell>
+                            <ViewCell>
+                                <Button Text="Products" Command="{Binding NavigateCommand}"
+                                        CommandParameter="ProductsPage" Margin="0,5" />
+                            </ViewCell>
+                        </TableSection>
+                    </TableRoot>
+                </TableView>
+            </StackLayout>
+        </ContentPage>
+    </FlyoutPage.Flyout>
+
+</FlyoutPage>
